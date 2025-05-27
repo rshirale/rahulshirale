@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Interactive infographic analyzing Rahul Shirale's career trends and professional profile, showcasing expertise in technology leadership, program management, data engineering, systems architecture, and AI product lifecycle.">
-    <meta name="keywords" content="Rahul Shirale, resume, infographic, career profile, technology leadership, program management, data engineering, systems engineering, AI, MarTech, healthcare IT, business analytics">
-    
+    <meta name="description"
+        content="Interactive infographic analyzing Rahul Shirale's career trends and professional profile, showcasing expertise in technology leadership, program management, data engineering, systems architecture, and AI product lifecycle.">
+    <meta name="keywords"
+        content="Rahul Shirale, resume, infographic, career profile, technology leadership, program management, data engineering, systems engineering, AI, MarTech, healthcare IT, business analytics">
+
     <meta property="og:title" content="Rahul Shirale: Career Trends & Professional Profile">
-    <meta property="og:description" content="An interactive infographic analyzing Rahul Shirale's career trends, showcasing expertise in technology leadership, program management, data engineering, and AI product lifecycle management.">
+    <meta property="og:description"
+        content="An interactive infographic analyzing Rahul Shirale's career trends, showcasing expertise in technology leadership, program management, data engineering, and AI product lifecycle management.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="[YOUR_INFOGRAPHIC_URL_HERE]">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Rahul Shirale: Career Trends & Professional Profile">
-    <meta name="twitter:description" content="An interactive infographic analyzing Rahul Shirale's career trends and expertise.">
+    <meta name="twitter:description"
+        content="An interactive infographic analyzing Rahul Shirale's career trends and expertise.">
     <title>Rahul Shirale: Career Trends & Professional Profile</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -21,32 +26,38 @@
         html {
             scroll-behavior: smooth;
         }
+
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f0f4f8; /* Light blue-gray background */
+            background-color: #f0f4f8;
+            /* Light blue-gray background */
         }
+
         .chart-container {
             position: relative;
             width: 100%;
-            max-width: 500px; 
+            max-width: 500px;
             margin-left: auto;
             margin-right: auto;
-            height: 300px; 
-            max-height: 350px; 
+            height: 300px;
+            max-height: 350px;
         }
-        @media (min-width: 768px) { 
+
+        @media (min-width: 768px) {
             .chart-container {
                 height: 350px;
                 max-height: 400px;
             }
         }
+
         .material-card {
             background-color: white;
-            border-radius: 0.5rem; 
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); 
-            padding: 1.5rem; 
-            margin-bottom: 1.5rem; 
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
         }
+
         .timeline-item::before {
             content: '';
             position: absolute;
@@ -55,53 +66,61 @@
             width: 20px;
             height: 20px;
             border-radius: 50%;
-            background-color: #0077B6; 
-            border: 3px solid #CAF0F8; 
+            background-color: #0077B6;
+            border: 3px solid #CAF0F8;
         }
+
         .timeline-line {
             position: absolute;
             left: -21px;
             top: 20px;
             width: 2px;
             height: calc(100% - 20px);
-            background-color: #0077B6; 
+            background-color: #0077B6;
         }
+
         .flowchart-box {
-            background-color: #CAF0F8; 
-            border: 2px solid #00B4D8; 
-            color: #0077B6; 
-            padding: 0.75rem; 
-            border-radius: 0.375rem; 
+            background-color: #CAF0F8;
+            border: 2px solid #00B4D8;
+            color: #0077B6;
+            padding: 0.75rem;
+            border-radius: 0.375rem;
             text-align: center;
             min-height: 80px;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
         }
+
         .flowchart-arrow {
-            font-size: 1.5rem; 
-            color: #0077B6; 
-            margin: 0.5rem 0; 
+            font-size: 1.5rem;
+            color: #0077B6;
+            margin: 0.5rem 0;
             text-align: center;
         }
+
         #sticky-nav {
             position: sticky;
             top: 0;
             z-index: 50;
-            background-color: rgba(255, 255, 255, 0.9); 
+            background-color: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(10px);
             padding: 0.5rem 0;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
+
         #sticky-nav a {
-            color: #0077B6; 
+            color: #0077B6;
             transition: color 0.3s ease;
         }
-        #sticky-nav a:hover, #sticky-nav a.active {
-            color: #00B4D8; 
+
+        #sticky-nav a:hover,
+        #sticky-nav a.active {
+            color: #00B4D8;
             font-weight: 600;
         }
+
         #backToTopBtn {
             display: none;
             position: fixed;
@@ -116,23 +135,27 @@
             padding: 10px 12px;
             border-radius: 50%;
             font-size: 18px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
             transition: background-color 0.3s, opacity 0.3s;
         }
+
         #backToTopBtn:hover {
             background-color: #005f80;
         }
+
         .section-animate {
             opacity: 0;
             transform: translateY(20px);
             transition: opacity 0.7s ease-out, transform 0.7s ease-out;
         }
+
         .section-animate.visible {
             opacity: 1;
             transform: translateY(0);
         }
     </style>
 </head>
+
 <body class="text-gray-800">
     <header id="sticky-nav" class="mb-8">
         <div class="container mx-auto px-4">
@@ -149,15 +172,22 @@
 
     <div class="container mx-auto p-4 sm:p-6 md:p-8">
         <section class="text-center mb-12 pt-8 section-animate">
-            <h1 class="text-4xl md:text-5xl font-bold text-[#0077B6] mb-3">Rahul Shirale: Driving Innovation Across Data, AI, and Technology Program Management</h1>
-            <p class="text-lg md:text-xl text-gray-600">Analyzing Career Trends and Expertise in Program Management, Data Engineering, and Systems Architecture</p>
+            <h1 class="text-4xl md:text-5xl font-bold text-[#0077B6] mb-3">Rahul Shirale: Driving Innovation Across
+                Data, AI, and Technology Program Management</h1>
+            <p class="text-lg md:text-xl text-gray-600">Analyzing Career Trends and Expertise in Program Management,
+                Data Engineering, and Systems Architecture</p>
         </section>
 
         <section id="snapshot" class="mb-12 section-animate">
             <h2 class="text-3xl font-semibold text-[#0077B6] mb-6 text-center">Professional Snapshot</h2>
             <div class="material-card">
                 <p class="text-gray-700 leading-relaxed mb-6">
-                    Rahul Shirale's professional journey illustrates a strategic ascent into technology leadership, with significant achievements in MarTech, healthcare IT, and the end-to-end management of AI products. His expertise spans the spectrum from complex data and systems engineering to high-level program management and the formulation of digital strategy. This unique combination of deep technical proficiency, rooted in an Engineering Master's, and strategic business insight from Harvard Business Analytics, defines his capacity to lead complex technological initiatives.
+                    Rahul Shirale's professional journey illustrates a strategic ascent into technology leadership, with
+                    significant achievements in MarTech, healthcare IT, and the end-to-end management of AI products.
+                    His expertise spans the spectrum from complex data and systems engineering to high-level program
+                    management and the formulation of digital strategy. This unique combination of deep technical
+                    proficiency, rooted in an Engineering Master's, and strategic business insight from Harvard Business
+                    Analytics, defines his capacity to lead complex technological initiatives.
                 </p>
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 text-center">
                     <div class="bg-[#90E0EF] p-6 rounded-lg shadow">
@@ -179,8 +209,11 @@
         <section id="career-timeline" class="mb-12 section-animate">
             <h2 class="text-3xl font-semibold text-[#0077B6] mb-8 text-center">Career Timeline & Role Evolution</h2>
             <div class="material-card">
-                 <p class="text-gray-700 leading-relaxed mb-6">
-                    Mr. Shirale's career demonstrates a significant progression, moving from foundational engineering roles to specialized data engineering, systems architecture, and ultimately to strategic technology program management. This timeline highlights key tenures and responsibilities, demonstrating consistent growth in scope and impact across various industries.
+                <p class="text-gray-700 leading-relaxed mb-6">
+                    Mr. Shirale's career demonstrates a significant progression, moving from foundational engineering
+                    roles to specialized data engineering, systems architecture, and ultimately to strategic technology
+                    program management. This timeline highlights key tenures and responsibilities, demonstrating
+                    consistent growth in scope and impact across various industries.
                 </p>
                 <div class="relative pl-8">
                     <div class="timeline-item mb-8 relative">
@@ -188,17 +221,23 @@
                         <h3 class="text-xl font-semibold text-[#00B4D8]">Accenture (3 years 8 months)</h3>
                         <p class="text-sm text-gray-500 mb-1">Oct 2021 - Present</p>
                         <div class="ml-4">
-                            <p class="font-medium text-gray-700">Technology Program Manager - MarTech (Nov 2023 - Present)</p>
+                            <p class="font-medium text-gray-700">Technology Program Manager - MarTech (Nov 2023 -
+                                Present)</p>
                             <ul class="list-disc list-inside text-gray-600 text-sm space-y-1 mt-1">
-                                <li>Spearheads Martech transformation initiatives and client measurement within Marketing Analytics.</li>
-                                <li>Leads full lifecycle of requirement engineering for advanced measurement frameworks.</li>
-                                <li>Orchestrates data strategy, governance, and cross-functional team collaboration.</li>
+                                <li>Spearheads Martech transformation initiatives and client measurement within
+                                    Marketing Analytics.</li>
+                                <li>Leads full lifecycle of requirement engineering for advanced measurement frameworks.
+                                </li>
+                                <li>Orchestrates data strategy, governance, and cross-functional team collaboration.
+                                </li>
                             </ul>
-                            <p class="font-medium text-gray-700 mt-3">Data Engineer - Social Media Growth and Acquisition (Oct 2021 - Nov 2023)</p>
+                            <p class="font-medium text-gray-700 mt-3">Data Engineer - Social Media Growth and
+                                Acquisition (Oct 2021 - Nov 2023)</p>
                             <ul class="list-disc list-inside text-gray-600 text-sm space-y-1 mt-1">
                                 <li>Engineered and maintained scalable data infrastructure for diverse products.</li>
                                 <li>Designed and implemented robust ETL pipelines for data warehousing.</li>
-                                <li>Constructed and optimized data models for business intelligence and advanced analytics.</li>
+                                <li>Constructed and optimized data models for business intelligence and advanced
+                                    analytics.</li>
                             </ul>
                         </div>
                     </div>
@@ -210,7 +249,8 @@
                             <p class="font-medium text-gray-700">Adjunct Professor</p>
                             <ul class="list-disc list-inside text-gray-600 text-sm space-y-1 mt-1">
                                 <li>Instructs courses in Business Analytics, Data Analytics, IT, and Programming.</li>
-                                <li>Delivers curriculum for DATA 300, DATA 100, TECH 100, focusing on data-driven decision making.</li>
+                                <li>Delivers curriculum for DATA 300, DATA 100, TECH 100, focusing on data-driven
+                                    decision making.</li>
                             </ul>
                         </div>
                     </div>
@@ -221,20 +261,24 @@
                         <div class="ml-4">
                             <p class="font-medium text-gray-700">Sr. Systems Engineer</p>
                             <ul class="list-disc list-inside text-gray-600 text-sm space-y-1 mt-1">
-                                <li>Specialized in Citrix technologies, supporting critical hospital projects and IT operations.</li>
-                                <li>Managed the Citrix Virtual Desktop Infrastructure (VDI) environment: administration, engineering, and support.</li>
-                                <li>Responsible for deploying, managing, and troubleshooting VDI systems, ensuring high performance, security, and compliance in a healthcare setting.</li>
+                                <li>Specialized in Citrix technologies, supporting critical hospital projects and IT
+                                    operations.</li>
+                                <li>Managed the Citrix Virtual Desktop Infrastructure (VDI) environment: administration,
+                                    engineering, and support.</li>
+                                <li>Responsible for deploying, managing, and troubleshooting VDI systems, ensuring high
+                                    performance, security, and compliance in a healthcare setting.</li>
                             </ul>
                         </div>
                     </div>
-                     <div class="timeline-item mb-8 relative">
-                         <div class="timeline-line"></div>
+                    <div class="timeline-item mb-8 relative">
+                        <div class="timeline-line"></div>
                         <h3 class="text-xl font-semibold text-[#00B4D8]">Reliance Steel & Aluminum Co.</h3>
                         <p class="text-sm text-gray-500 mb-1">Apr 2015 - Dec 2017 (2 years 9 months)</p>
                         <div class="ml-4">
                             <p class="font-medium text-gray-700">Senior Systems Engineer</p>
                             <ul class="list-disc list-inside text-gray-600 text-sm space-y-1 mt-1">
-                                <li>Provided senior-level systems engineering for key projects and operational functions.</li>
+                                <li>Provided senior-level systems engineering for key projects and operational
+                                    functions.</li>
                                 <li>Designed, implemented, and maintained complex IT systems infrastructure.</li>
                             </ul>
                         </div>
@@ -242,16 +286,22 @@
                     <div class="timeline-item relative">
                         <h3 class="text-xl font-semibold text-[#00B4D8]">Foundational Engineering & Academic Roles</h3>
                         <p class="text-sm text-gray-500 mb-1">Jan 2006 - Dec 2013</p>
-                         <div class="ml-4">
-                            <p class="text-gray-600 text-sm">Early career roles including Team Lead (CSU Northridge), System Engineer (Amgen), Engineer (Safeco), and academic support positions (CSULB), building a strong technical and leadership base.</p>
+                        <div class="ml-4">
+                            <p class="text-gray-600 text-sm">Early career roles including Team Lead (CSU Northridge),
+                                System Engineer (Amgen), Engineer (Safeco), and academic support positions (CSULB),
+                                building a strong technical and leadership base.</p>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="material-card mt-8">
-                <h3 class="text-2xl font-semibold text-[#0077B6] mb-4 text-center">Distribution of Experience (Illustrative)</h3>
-                 <p class="text-gray-700 leading-relaxed mb-6 text-center">
-                    The following chart illustrates the approximate time allocation across Mr. Shirale's key areas of professional focus, based on primary role responsibilities during his tenures. This visualization helps understand the depth of experience in each domain like program management and data engineering.
+                <h3 class="text-2xl font-semibold text-[#0077B6] mb-4 text-center">Distribution of Experience
+                    (Illustrative)</h3>
+                <p class="text-gray-700 leading-relaxed mb-6 text-center">
+                    The following chart illustrates the approximate time allocation across Mr. Shirale's key areas of
+                    professional focus, based on primary role responsibilities during his tenures. This visualization
+                    helps understand the depth of experience in each domain like program management and data
+                    engineering.
                 </p>
                 <div class="chart-container h-72 md:h-96">
                     <canvas id="experienceBarChart"></canvas>
@@ -262,8 +312,11 @@
         <section id="competencies" class="mb-12 section-animate">
             <h2 class="text-3xl font-semibold text-[#0077B6] mb-8 text-center">Core Competencies & Skill Landscape</h2>
             <div class="material-card">
-                 <p class="text-gray-700 leading-relaxed mb-6">
-                    Mr. Shirale's skillset is characterized by a strategic blend of management capabilities and deep technical expertise in areas like Business Analytics, Management, and Digital Strategy. Analysis of his "Top Skills" and technical proficiencies indicates a strong alignment with current industry demands for data-driven decision-making and digital transformation leadership.
+                <p class="text-gray-700 leading-relaxed mb-6">
+                    Mr. Shirale's skillset is characterized by a strategic blend of management capabilities and deep
+                    technical expertise in areas like Business Analytics, Management, and Digital Strategy. Analysis of
+                    his "Top Skills" and technical proficiencies indicates a strong alignment with current industry
+                    demands for data-driven decision-making and digital transformation leadership.
                 </p>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
                     <div class="text-center">
@@ -271,21 +324,24 @@
                         <div class="chart-container !h-48 !max-h-48 sm:!h-56 sm:!max-h-56">
                             <canvas id="analyticsDonut"></canvas>
                         </div>
-                         <p class="text-sm text-gray-600 mt-2">Expertise in strategic data interpretation and insight generation for business value.</p>
+                        <p class="text-sm text-gray-600 mt-2">Expertise in strategic data interpretation and insight
+                            generation for business value.</p>
                     </div>
                     <div class="text-center">
                         <h4 class="text-xl font-semibold text-[#00B4D8] mb-2">Management</h4>
                         <div class="chart-container !h-48 !max-h-48 sm:!h-56 sm:!max-h-56">
                             <canvas id="managementDonut"></canvas>
                         </div>
-                        <p class="text-sm text-gray-600 mt-2">Proficiency in program, project, and cross-functional team leadership.</p>
+                        <p class="text-sm text-gray-600 mt-2">Proficiency in program, project, and cross-functional team
+                            leadership.</p>
                     </div>
                     <div class="text-center">
                         <h4 class="text-xl font-semibold text-[#00B4D8] mb-2">Digital Strategy</h4>
                         <div class="chart-container !h-48 !max-h-48 sm:!h-56 sm:!max-h-56">
                             <canvas id="strategyDonut"></canvas>
                         </div>
-                        <p class="text-sm text-gray-600 mt-2">Skilled in driving technology-enabled business transformation and innovation.</p>
+                        <p class="text-sm text-gray-600 mt-2">Skilled in driving technology-enabled business
+                            transformation and innovation.</p>
                     </div>
                 </div>
                 <div>
@@ -295,10 +351,13 @@
                         <span class="bg-[#0077B6] text-white px-4 py-2 rounded-full text-sm shadow">HTML</span>
                         <span class="bg-[#0077B6] text-white px-4 py-2 rounded-full text-sm shadow">CSS</span>
                         <span class="bg-[#0077B6] text-white px-4 py-2 rounded-full text-sm shadow">SQL</span>
-                        <span class="bg-[#0077B6] text-white px-4 py-2 rounded-full text-sm shadow">Data Engineering & ETL</span>
+                        <span class="bg-[#0077B6] text-white px-4 py-2 rounded-full text-sm shadow">Data Engineering &
+                            ETL</span>
                         <span class="bg-[#0077B6] text-white px-4 py-2 rounded-full text-sm shadow">Citrix VDI</span>
-                        <span class="bg-[#0077B6] text-white px-4 py-2 rounded-full text-sm shadow">AI Product Lifecycle Mgt.</span>
-                        <span class="bg-[#0077B6] text-white px-4 py-2 rounded-full text-sm shadow">Cloud Infrastructure</span>
+                        <span class="bg-[#0077B6] text-white px-4 py-2 rounded-full text-sm shadow">AI Product Lifecycle
+                            Mgt.</span>
+                        <span class="bg-[#0077B6] text-white px-4 py-2 rounded-full text-sm shadow">Cloud
+                            Infrastructure</span>
                     </div>
                 </div>
             </div>
@@ -308,7 +367,10 @@
             <h2 class="text-3xl font-semibold text-[#0077B6] mb-8 text-center">AI Product Lifecycle Expertise</h2>
             <div class="material-card">
                 <p class="text-gray-700 leading-relaxed mb-6">
-                    A significant area of Mr. Shirale's reported responsibility involves end-to-end management of AI products. The following flowchart illustrates the key stages he orchestrates, from initial concept to post-release support, indicating a comprehensive understanding of the AI development and deployment pipeline, critical for modern technology roles.
+                    A significant area of Mr. Shirale's reported responsibility involves end-to-end management of AI
+                    products. The following flowchart illustrates the key stages he orchestrates, from initial concept
+                    to post-release support, indicating a comprehensive understanding of the AI development and
+                    deployment pipeline, critical for modern technology roles.
                 </p>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-stretch">
                     <div class="flowchart-box">Core Function & Audience Definition</div>
@@ -316,11 +378,11 @@
                     <div class="flowchart-box">Input Data Pipeline Evaluation & Maintenance</div>
                     <div class="flowchart-arrow sm:hidden col-span-1">➔</div>
                     <div class="flowchart-box">Cross-Functional Team Orchestration</div>
-                     <div class="flowchart-arrow sm:hidden col-span-1">➔</div>
+                    <div class="flowchart-arrow sm:hidden col-span-1">➔</div>
                     <div class="flowchart-box">Key Interface & Design (UI/UX, Feature Eng.)</div>
                 </div>
                 <div class="flowchart-arrow hidden sm:block sm:col-span-2 lg:col-span-4">➔</div>
-                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-stretch mt-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-stretch mt-4">
                     <div class="flowchart-box">Model & Server Infrastructure Integration</div>
                     <div class="flowchart-arrow sm:hidden col-span-1">➔</div>
                     <div class="flowchart-box">Tech Stack Design (with ML Eng. & Data Sci.)</div>
@@ -336,7 +398,10 @@
             <h2 class="text-3xl font-semibold text-[#0077B6] mb-8 text-center">Educational & Foundational Pillars</h2>
             <div class="material-card">
                 <p class="text-gray-700 leading-relaxed mb-6">
-                    Mr. Shirale's practical industry experience is strongly supported by a robust academic background in both Electrical and Electronics Engineering and specialized Business Analytics from Harvard Business School. This combination of technical depth and strategic business acumen is crucial for effective technology leadership.
+                    Mr. Shirale's practical industry experience is strongly supported by a robust academic background in
+                    both Electrical and Electronics Engineering and specialized Business Analytics from Harvard Business
+                    School. This combination of technical depth and strategic business acumen is crucial for effective
+                    technology leadership.
                 </p>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     <div class="bg-[#E0F7FA] p-6 rounded-lg shadow">
@@ -344,34 +409,44 @@
                         <p class="text-gray-700">Business Analytics (2019-2021)</p>
                     </div>
                     <div class="bg-[#E0F7FA] p-6 rounded-lg shadow">
-                        <h4 class="text-xl font-semibold text-[#0077B6] mb-1">California State University-Long Beach</h4>
+                        <h4 class="text-xl font-semibold text-[#0077B6] mb-1">California State University-Long Beach
+                        </h4>
                         <p class="text-gray-700">Master's degree, Electrical and Electronics Engineering</p>
                     </div>
                     <div class="bg-[#E0F7FA] p-6 rounded-lg shadow">
-                        <h4 class="text-xl font-semibold text-[#0077B6] mb-1">Dwarkadas J. Sanghvi College of Engineering</h4>
+                        <h4 class="text-xl font-semibold text-[#0077B6] mb-1">Dwarkadas J. Sanghvi College of
+                            Engineering</h4>
                         <p class="text-gray-700">Bachelor's degree, Electronics</p>
                     </div>
                 </div>
                 <h4 class="text-2xl font-semibold text-[#0077B6] mt-8 mb-4 text-center">Key Certifications</h4>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-center">
-                    <p class="bg-gray-100 p-3 rounded-md shadow text-gray-700">People Leadership Credential - Chapter 1: Connect</p>
-                    <p class="bg-gray-100 p-3 rounded-md shadow text-gray-700">Programming Foundations with JavaScript, HTML and CSS</p>
-                    <p class="bg-gray-100 p-3 rounded-md shadow text-gray-700">Java Programming: Solving Problems with Software (with Honors)</p>
+                    <p class="bg-gray-100 p-3 rounded-md shadow text-gray-700">People Leadership Credential - Chapter 1:
+                        Connect</p>
+                    <p class="bg-gray-100 p-3 rounded-md shadow text-gray-700">Programming Foundations with JavaScript,
+                        HTML and CSS</p>
+                    <p class="bg-gray-100 p-3 rounded-md shadow text-gray-700">Java Programming: Solving Problems with
+                        Software (with Honors)</p>
                     <p class="bg-gray-100 p-3 rounded-md shadow text-gray-700">SQL Basics</p>
                 </div>
             </div>
         </section>
 
         <section id="academia" class="mb-12 section-animate">
-            <h2 class="text-3xl font-semibold text-[#0077B6] mb-8 text-center">Leadership in Academia: Teaching & Mentorship</h2>
+            <h2 class="text-3xl font-semibold text-[#0077B6] mb-8 text-center">Leadership in Academia: Teaching &
+                Mentorship</h2>
             <div class="material-card">
                 <p class="text-gray-700 leading-relaxed mb-6">
-                    Complementing his extensive industry roles, Mr. Shirale actively contributes to the academic field as an Adjunct Professor at Westcliff University. This engagement in higher education underscores his commitment to knowledge sharing, curriculum development, and mentoring future talent in critical areas of technology and analytics.
+                    Complementing his extensive industry roles, Mr. Shirale actively contributes to the academic field
+                    as an Adjunct Professor at Westcliff University. This engagement in higher education underscores his
+                    commitment to knowledge sharing, curriculum development, and mentoring future talent in critical
+                    areas of technology and analytics.
                 </p>
                 <div class="bg-[#E0F7FA] p-6 rounded-lg shadow">
                     <h4 class="text-xl font-semibold text-[#0077B6] mb-2">Westcliff University (May 2023 - Present)</h4>
                     <p class="text-gray-700 font-medium mb-1">Adjunct Professor</p>
-                    <p class="text-gray-600 text-sm">Instructs undergraduate and graduate courses in Business Analytics, Data Analytics, Information Technology, and Programming. Key courses taught include:</p>
+                    <p class="text-gray-600 text-sm">Instructs undergraduate and graduate courses in Business Analytics,
+                        Data Analytics, Information Technology, and Programming. Key courses taught include:</p>
                     <ul class="list-disc list-inside text-gray-600 text-sm mt-2 space-y-1">
                         <li>DATA 300: Data-Driven Decision Making</li>
                         <li>DATA 100: Introduction to Data Analytics</li>
@@ -382,11 +457,15 @@
         </section>
 
         <footer class="text-center py-8 mt-12 border-t border-[#90E0EF]">
-            <p class="text-gray-600">This infographic provides an analytical overview of Rahul Shirale's professional profile, based on information from his resume.</p>
+            <p class="text-gray-600">This infographic provides an analytical overview of Rahul Shirale's professional
+                profile, based on information from his resume.</p>
             <div class="mt-4 space-x-4">
-                <a href="tel:714-906-0300" class="text-[#0077B6] hover:text-[#00B4D8]" aria-label="Call Rahul">📞 Phone</a>
-                <a href="mailto:rahul.shirale@live.com" class="text-[#0077B6] hover:text-[#00B4D8]" aria-label="Email Rahul">📧 Email</a>
-                <a href="http://www.linkedin.com/in/rahulshirale" target="_blank" rel="noopener noreferrer" class="text-[#0077B6] hover:text-[#00B4D8]" aria-label="Rahul's LinkedIn">🔗 LinkedIn</a>
+                <a href="tel:714-906-0300" class="text-[#0077B6] hover:text-[#00B4D8]" aria-label="Call Rahul">📞
+                    Phone</a>
+                <a href="mailto:rahul.shirale@live.com" class="text-[#0077B6] hover:text-[#00B4D8]"
+                    aria-label="Email Rahul">📧 Email</a>
+                <a href="http://www.linkedin.com/in/rahulshirale" target="_blank" rel="noopener noreferrer"
+                    class="text-[#0077B6] hover:text-[#00B4D8]" aria-label="Rahul's LinkedIn">🔗 LinkedIn</a>
             </div>
         </footer>
     </div>
@@ -409,7 +488,7 @@
             return lines.filter(line => line !== '');
         }
 
-        const commonTooltipTitleCallback = function(tooltipItems) {
+        const commonTooltipTitleCallback = function (tooltipItems) {
             const item = tooltipItems[0];
             let label = item.chart.data.labels[item.dataIndex];
             if (Array.isArray(label)) {
@@ -418,7 +497,7 @@
                 return label;
             }
         };
-        
+
         const commonChartOptions = {
             responsive: true,
             maintainAspectRatio: false,
@@ -426,13 +505,13 @@
                 legend: {
                     position: 'top',
                     labels: {
-                        color: '#0077B6' 
+                        color: '#0077B6'
                     }
                 },
                 tooltip: {
-                    backgroundColor: 'rgba(0, 119, 182, 0.9)', 
+                    backgroundColor: 'rgba(0, 119, 182, 0.9)',
                     titleColor: '#FFFFFF',
-                    bodyColor: '#CAF0F8', 
+                    bodyColor: '#CAF0F8',
                     callbacks: {
                         title: commonTooltipTitleCallback
                     }
@@ -440,35 +519,35 @@
             },
             scales: {
                 x: {
-                    ticks: { 
-                        color: '#0077B6', 
-                        font: { size: 10 } 
+                    ticks: {
+                        color: '#0077B6',
+                        font: { size: 10 }
                     },
                     grid: { display: false }
                 },
                 y: {
-                    ticks: { 
-                        color: '#0077B6', 
+                    ticks: {
+                        color: '#0077B6',
                         font: { size: 10 }
                     },
-                    grid: { color: '#D1E9F0' } 
+                    grid: { color: '#D1E9F0' }
                 }
             }
         };
-        
+
         const expCtx = document.getElementById('experienceBarChart').getContext('2d');
         const experienceData = {
             labels: [
-                wrapLabels('Tech Program Manager (Accenture)', 16), 
-                wrapLabels('Data Engineer (Accenture)', 16), 
-                wrapLabels('Sr. Systems Engineer (CHOC)', 16), 
+                wrapLabels('Tech Program Manager (Accenture)', 16),
+                wrapLabels('Data Engineer (Accenture)', 16),
+                wrapLabels('Sr. Systems Engineer (CHOC)', 16),
                 wrapLabels('Sr. Systems Engineer (Reliance)', 16)
             ],
             datasets: [{
                 label: 'Years in Role (Approx.)',
-                data: [1.5, 2.1, 4.4, 2.75], 
-                backgroundColor: ['#00B4D8', '#00B4D8', '#00B4D8', '#00B4D8'], 
-                borderColor: '#0077B6', 
+                data: [1.5, 2.1, 4.4, 2.75],
+                backgroundColor: ['#00B4D8', '#00B4D8', '#00B4D8', '#00B4D8'],
+                borderColor: '#0077B6',
                 borderWidth: 1,
                 borderRadius: 5,
             }]
@@ -486,11 +565,11 @@
             plugins: {
                 legend: { display: false },
                 tooltip: {
-                     backgroundColor: 'rgba(0, 119, 182, 0.9)',
-                     titleColor: '#FFFFFF',
-                     bodyColor: '#CAF0F8',
+                    backgroundColor: 'rgba(0, 119, 182, 0.9)',
+                    titleColor: '#FFFFFF',
+                    bodyColor: '#CAF0F8',
                     callbacks: {
-                        label: function(context) {
+                        label: function (context) {
                             return context.dataset.label + ': ' + context.parsed + '%';
                         }
                     }
@@ -505,8 +584,8 @@
                 labels: ['Focus'],
                 datasets: [{
                     label: 'Business Analytics',
-                    data: [90, 10], 
-                    backgroundColor: ['#0077B6', '#E0F7FA'], 
+                    data: [90, 10],
+                    backgroundColor: ['#0077B6', '#E0F7FA'],
                     borderColor: '#FFFFFF',
                     borderWidth: 2
                 }]
@@ -521,8 +600,8 @@
                 labels: ['Focus'],
                 datasets: [{
                     label: 'Management',
-                    data: [85, 15], 
-                    backgroundColor: ['#00B4D8', '#E0F7FA'], 
+                    data: [85, 15],
+                    backgroundColor: ['#00B4D8', '#E0F7FA'],
                     borderColor: '#FFFFFF',
                     borderWidth: 2
                 }]
@@ -537,8 +616,8 @@
                 labels: ['Focus'],
                 datasets: [{
                     label: 'Digital Strategy',
-                    data: [80, 20], 
-                    backgroundColor: ['#90E0EF', '#E0F7FA'], 
+                    data: [80, 20],
+                    backgroundColor: ['#90E0EF', '#E0F7FA'],
                     borderColor: '#FFFFFF',
                     borderWidth: 2
                 }]
@@ -555,7 +634,7 @@
             let current = '';
             sectionsForNav.forEach(section => {
                 const sectionTop = section.offsetTop;
-                if (pageYOffset >= sectionTop - 70) { 
+                if (pageYOffset >= sectionTop - 70) {
                     current = section.getAttribute('id');
                 }
             });
@@ -576,7 +655,7 @@
         });
 
         backToTopBtn.addEventListener('click', () => {
-            window.scrollTo({top: 0, behavior: 'smooth'});
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
         // Section fade-in animations
@@ -596,4 +675,5 @@
 
     </script>
 </body>
+
 </html>
