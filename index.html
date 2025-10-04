@@ -2,6 +2,17 @@
 <html lang="en">
 
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GVTZY2401N"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-GVTZY2401N');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
@@ -80,17 +91,23 @@
         }
 
         .flowchart-box {
-            background-color: #CAF0F8;
-            border: 2px solid #00B4D8;
-            color: #0077B6;
-            padding: 0.75rem;
-            border-radius: 0.375rem;
+            background-color: white;
+            border: 1px solid #ADE8F4;
+            color: #03045E;
+            padding: 1rem;
+            border-radius: 0.5rem;
             text-align: center;
-            min-height: 80px;
             display: flex;
-            align-items: center;
+            flex-direction: column;
             justify-content: center;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            min-height: 120px;
+        }
+
+        .flowchart-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.07), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
 
         .flowchart-arrow {
@@ -218,7 +235,7 @@
                 <div class="relative pl-8">
                     <div class="timeline-item mb-8 relative">
                         <div class="timeline-line"></div>
-                        <h3 class="text-xl font-semibold text-[#00B4D8]">Accenture (3 years 8 months)</h3>
+                        <h3 id="accenture-duration" class="text-xl font-semibold text-[#00B4D8]">Accenture</h3>
                         <p class="text-sm text-gray-500 mb-1">Oct 2021 - Present</p>
                         <div class="ml-4">
                             <p class="font-medium text-gray-700">Technology Program Manager - MarTech (Nov 2023 -
@@ -324,24 +341,24 @@
                         <div class="chart-container !h-48 !max-h-48 sm:!h-56 sm:!max-h-56">
                             <canvas id="analyticsDonut"></canvas>
                         </div>
-                        <p class="text-sm text-gray-600 mt-2">Expertise in strategic data interpretation and insight
-                            generation for business value.</p>
+                        <p class="text-sm text-gray-600 mt-2">Strategic data interpretation, insight generation, and
+                            reporting for business value.</p>
                     </div>
                     <div class="text-center">
                         <h4 class="text-xl font-semibold text-[#00B4D8] mb-2">Management</h4>
                         <div class="chart-container !h-48 !max-h-48 sm:!h-56 sm:!max-h-56">
                             <canvas id="managementDonut"></canvas>
                         </div>
-                        <p class="text-sm text-gray-600 mt-2">Proficiency in program, project, and cross-functional team
-                            leadership.</p>
+                        <p class="text-sm text-gray-600 mt-2">Leadership in program management, project execution, and
+                            cross-functional teams.</p>
                     </div>
                     <div class="text-center">
                         <h4 class="text-xl font-semibold text-[#00B4D8] mb-2">Digital Strategy</h4>
                         <div class="chart-container !h-48 !max-h-48 sm:!h-56 sm:!max-h-56">
                             <canvas id="strategyDonut"></canvas>
                         </div>
-                        <p class="text-sm text-gray-600 mt-2">Skilled in driving technology-enabled business
-                            transformation and innovation.</p>
+                        <p class="text-sm text-gray-600 mt-2">Driving technology-enabled business transformation,
+                            innovation, and strategic roadmapping.</p>
                     </div>
                 </div>
                 <div>
@@ -373,23 +390,57 @@
                     deployment pipeline, critical for modern technology roles.
                 </p>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-stretch">
-                    <div class="flowchart-box">Core Function & Audience Definition</div>
-                    <div class="flowchart-arrow sm:hidden col-span-1">➔</div>
-                    <div class="flowchart-box">Input Data Pipeline Evaluation & Maintenance</div>
-                    <div class="flowchart-arrow sm:hidden col-span-1">➔</div>
-                    <div class="flowchart-box">Cross-Functional Team Orchestration</div>
-                    <div class="flowchart-arrow sm:hidden col-span-1">➔</div>
-                    <div class="flowchart-box">Key Interface & Design (UI/UX, Feature Eng.)</div>
+                    <!-- Step 1 -->
+                    <div class="flowchart-box" style="border-color: #90E0EF;">
+                        <svg class="w-8 h-8 mx-auto mb-2 text-[#00B4D8]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+                        <span class="font-semibold">Core Function & Audience Definition</span>
+                    </div>
+                    <div class="flex items-center justify-center flowchart-arrow sm:hidden">↓</div>
+                    <!-- Step 2 -->
+                    <div class="flowchart-box" style="border-color: #48CAE4;">
+                        <svg class="w-8 h-8 mx-auto mb-2 text-[#0096C7]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4M4 7s0 0 0 0m16 0s0 0 0 0M12 15a4 4 0 000-8 4 4 0 000 8z"></path></svg>
+                        <span class="font-semibold">Input Data Pipeline Evaluation & Maintenance</span>
+                    </div>
+                    <div class="flex items-center justify-center flowchart-arrow sm:hidden">↓</div>
+                    <!-- Step 3 -->
+                    <div class="flowchart-box" style="border-color: #00B4D8;">
+                        <svg class="w-8 h-8 mx-auto mb-2 text-[#0077B6]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                        <span class="font-semibold">Cross-Functional Team Orchestration</span>
+                    </div>
+                    <div class="flex items-center justify-center flowchart-arrow sm:hidden">↓</div>
+                    <!-- Step 4 -->
+                    <div class="flowchart-box" style="border-color: #0096C7;">
+                        <svg class="w-8 h-8 mx-auto mb-2 text-[#023E8A]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"></path></svg>
+                        <span class="font-semibold">Key Interface & Design (UI/UX, Feature Eng.)</span>
+                    </div>
                 </div>
-                <div class="flowchart-arrow hidden sm:block sm:col-span-2 lg:col-span-4">➔</div>
+                <div class="hidden sm:flex items-center justify-center my-4">
+                    <svg class="w-12 h-12 text-[#0077B6]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                </div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-stretch mt-4">
-                    <div class="flowchart-box">Model & Server Infrastructure Integration</div>
-                    <div class="flowchart-arrow sm:hidden col-span-1">➔</div>
-                    <div class="flowchart-box">Tech Stack Design (with ML Eng. & Data Sci.)</div>
-                    <div class="flowchart-arrow sm:hidden col-span-1">➔</div>
-                    <div class="flowchart-box">AI Product Shipment</div>
-                    <div class="flowchart-arrow sm:hidden col-span-1">➔</div>
-                    <div class="flowchart-box">Post-Release Management & Scalability</div>
+                    <!-- Step 5 -->
+                    <div class="flowchart-box" style="border-color: #0077B6;">
+                        <svg class="w-8 h-8 mx-auto mb-2 text-[#023E8A]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"></path></svg>
+                        <span class="font-semibold">Model & Server Infrastructure Integration</span>
+                    </div>
+                    <div class="flex items-center justify-center flowchart-arrow sm:hidden">↓</div>
+                    <!-- Step 6 -->
+                    <div class="flowchart-box" style="border-color: #023E8A;">
+                        <svg class="w-8 h-8 mx-auto mb-2 text-[#03045E]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                        <span class="font-semibold">Tech Stack Design (with ML Eng. & Data Sci.)</span>
+                    </div>
+                    <div class="flex items-center justify-center flowchart-arrow sm:hidden">↓</div>
+                    <!-- Step 7 -->
+                    <div class="flowchart-box" style="border-color: #0096C7;">
+                        <svg class="w-8 h-8 mx-auto mb-2 text-[#0077B6]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                        <span class="font-semibold">AI Product Shipment</span>
+                    </div>
+                    <div class="flex items-center justify-center flowchart-arrow sm:hidden">↓</div>
+                    <!-- Step 8 -->
+                    <div class="flowchart-box" style="border-color: #48CAE4;">
+                        <svg class="w-8 h-8 mx-auto mb-2 text-[#0096C7]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                        <span class="font-semibold">Post-Release Management & Scalability</span>
+                    </div>
                 </div>
             </div>
         </section>
@@ -451,6 +502,7 @@
                         <li>DATA 300: Data-Driven Decision Making</li>
                         <li>DATA 100: Introduction to Data Analytics</li>
                         <li>TECH 100: Introduction to Technology</li>
+                        <li>Conducts 3-day professional weekend seminars.</li>
                     </ul>
                 </div>
             </div>
@@ -559,73 +611,108 @@
             options: { ...commonChartOptions, indexAxis: 'y' }
         });
 
+        const doughnutLabel = {
+            id: 'doughnutLabel',
+            beforeDatasetsDraw(chart, args, pluginOptions) {
+                const { ctx } = chart;
+                const { text, font, color } = pluginOptions;
+                if (!text) return;
+
+                ctx.save();
+                const x = chart.getDatasetMeta(0).data[0].x;
+                const y = chart.getDatasetMeta(0).data[0].y;
+
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.font = font || 'bold 24px Inter';
+                ctx.fillStyle = color || '#0077B6';
+
+                ctx.fillText(text, x, y);
+                ctx.restore();
+            }
+        };
+
         const skillChartOptions = {
             responsive: true,
             maintainAspectRatio: false,
             cutout: '70%',
             plugins: {
-                legend: { display: false },
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        color: '#03045E',
+                        font: { size: 10 },
+                        boxWidth: 15,
+                        padding: 15
+                    }
+                },
                 tooltip: {
                     backgroundColor: 'rgba(0, 119, 182, 0.9)',
                     titleColor: '#FFFFFF',
                     bodyColor: '#CAF0F8',
                     callbacks: {
                         label: function (context) {
-                            return context.dataset.label + ': ' + context.parsed + '%';
+                            let label = context.label || '';
+                            if (label) { label += ': '; }
+                            if (context.parsed !== null) { label += context.parsed + '%'; }
+                            return label;
                         }
                     }
                 }
             }
         };
 
+
         const analyticsCtx = document.getElementById('analyticsDonut').getContext('2d');
         new Chart(analyticsCtx, {
             type: 'doughnut',
             data: {
-                labels: ['Focus'],
+                labels: ['Strategic Insights', 'Data Interpretation', 'Reporting'],
                 datasets: [{
-                    label: 'Business Analytics',
-                    data: [90, 10],
-                    backgroundColor: ['#0077B6', '#E0F7FA'],
+                    data: [40, 35, 25],
+                    backgroundColor: ['#0077B6', '#00B4D8', '#90E0EF'],
                     borderColor: '#FFFFFF',
                     borderWidth: 2
                 }]
             },
-            options: skillChartOptions
+            options: { ...skillChartOptions, plugins: { ...skillChartOptions.plugins, doughnutLabel: { text: '90%' } } },
+            plugins: [doughnutLabel]
         });
 
         const managementCtx = document.getElementById('managementDonut').getContext('2d');
         new Chart(managementCtx, {
             type: 'doughnut',
             data: {
-                labels: ['Focus'],
+                labels: ['Program Mgt.', 'Team Leadership', 'Project Execution'],
                 datasets: [{
-                    label: 'Management',
-                    data: [85, 15],
-                    backgroundColor: ['#00B4D8', '#E0F7FA'],
+                    data: [45, 30, 25],
+                    backgroundColor: ['#0077B6', '#00B4D8', '#90E0EF'],
                     borderColor: '#FFFFFF',
                     borderWidth: 2
                 }]
             },
-            options: skillChartOptions
+            options: { ...skillChartOptions, plugins: { ...skillChartOptions.plugins, doughnutLabel: { text: '85%', color: '#00B4D8' } } },
+            plugins: [doughnutLabel]
         });
 
         const strategyCtx = document.getElementById('strategyDonut').getContext('2d');
         new Chart(strategyCtx, {
             type: 'doughnut',
             data: {
-                labels: ['Focus'],
+                labels: ['Transformation', 'Innovation', 'Roadmapping'],
                 datasets: [{
-                    label: 'Digital Strategy',
-                    data: [80, 20],
-                    backgroundColor: ['#90E0EF', '#E0F7FA'],
+                    data: [40, 35, 25],
+                    backgroundColor: ['#0077B6', '#00B4D8', '#90E0EF'],
                     borderColor: '#FFFFFF',
                     borderWidth: 2
                 }]
             },
-            options: skillChartOptions
+            options: { ...skillChartOptions, plugins: { ...skillChartOptions.plugins, doughnutLabel: { text: '80%', color: '#90E0EF' } } },
+            plugins: [doughnutLabel]
         });
 
+        // Main script for page interactions
+        document.addEventListener('DOMContentLoaded', () => {
         // Sticky Nav Active State & Back to Top Button
         const navLinks = document.querySelectorAll('#sticky-nav a');
         const sectionsForNav = document.querySelectorAll('section[id]');
@@ -674,6 +761,31 @@
             sectionObserver.observe(section);
         });
 
+        // Dynamic Accenture Experience Calculation
+        function calculateAccentureExperience() {
+            const startDate = new Date('2021-10-01');
+            const currentDate = new Date();
+
+            let years = currentDate.getFullYear() - startDate.getFullYear();
+            let months = currentDate.getMonth() - startDate.getMonth();
+
+            if (months < 0 || (months === 0 && currentDate.getDate() < startDate.getDate())) {
+                years--;
+                months += 12;
+            }
+
+            let durationString = '';
+            if (years > 0) {
+                durationString += `${years} year${years > 1 ? 's' : ''}`;
+            }
+            if (months > 0) {
+                durationString += ` ${months} month${months > 1 ? 's' : ''}`;
+            }
+            
+            document.getElementById('accenture-duration').textContent = `Accenture (${durationString.trim()})`;
+        }
+        calculateAccentureExperience();
+        });
     </script>
 </body>
 
