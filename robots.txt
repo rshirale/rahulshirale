@@ -1,0 +1,7 @@
+# Allow all web crawlers to access all content
+User-agent: *
+Disallow: 
+
+# Point to the sitemap for better indexing
+# Replace the URL with the actual URL of your sitemap
+Sitemap: https://rahulshirale.github.io/sitemap.xml
