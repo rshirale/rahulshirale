@@ -85,7 +85,7 @@ const experienceData = {
     }]
 };
 new Chart(expCtx, {
-    type: 'bar',
+    type: 'bar', // This will be updated dynamically
     data: experienceData,
     options: { ...commonChartOptions, indexAxis: 'y' }
 });
@@ -190,11 +190,33 @@ new Chart(strategyCtx, {
     plugins: [doughnutLabel]
 });
 
-// Main script for page interactions
 document.addEventListener('DOMContentLoaded', () => {
-    // Sticky Nav Active State & Back to Top Button
+    const charts = Chart.instances;
+
+    function updateChartColors(isDarkMode) {
+        const gridColor = isDarkMode ? '#374151' : '#D1E9F0';
+        const tickColor = isDarkMode ? '#90E0EF' : '#0077B6';
+        const legendColor = isDarkMode ? '#90E0EF' : '#0077B6';
+        const doughnutLegendColor = isDarkMode ? '#CAF0F8' : '#03045E';
+        const barBgColor = isDarkMode ? '#0096C7' : '#00B4D8';
+
+        charts[0].options.scales.x.ticks.color = tickColor;
+        charts[0].options.scales.y.ticks.color = tickColor;
+        charts[0].options.scales.y.grid.color = gridColor;
+        charts[0].options.plugins.legend.labels.color = legendColor;
+        charts[0].data.datasets[0].backgroundColor = barBgColor;
+
+        for (let i = 1; i < 4; i++) {
+            charts[i].options.plugins.legend.labels.color = doughnutLegendColor;
+        }
+
+        Object.values(charts).forEach(chart => chart.update());
+    }
+
+    // --- DOM Element Selections ---
     const navLinks = document.querySelectorAll('#sticky-nav a');
     const sectionsForNav = document.querySelectorAll('section[id]');
+    const sectionOffsets = Array.from(sectionsForNav).map(sec => ({ id: sec.id, offset: sec.offsetTop }));
     const backToTopBtn = document.getElementById('backToTopBtn');
 
     // Theme toggle logic
@@ -202,53 +224,72 @@ document.addEventListener('DOMContentLoaded', () => {
     const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
     const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
 
-    // Change the icons inside the button based on previous settings
-    if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    function applyTheme(isDark) {
+        if (isDark) {
+            document.documentElement.classList.add('dark');
+            themeToggleLightIcon.classList.remove('hidden');
+            themeToggleDarkIcon.classList.add('hidden');
+        } else {
+            document.documentElement.classList.remove('dark');
+            themeToggleDarkIcon.classList.remove('hidden');
+            themeToggleLightIcon.classList.add('hidden');
+        }
+        updateChartColors(isDark);
+    }
+
+    const isInitiallyDark = localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    if (isInitiallyDark) {
         themeToggleLightIcon.classList.remove('hidden');
     } else {
         themeToggleDarkIcon.classList.remove('hidden');
     }
 
-    themeToggleBtn.addEventListener('click', function () {
-        // toggle icons inside button
-        themeToggleDarkIcon.classList.toggle('hidden');
-        themeToggleLightIcon.classList.toggle('hidden');
-
-        // if set via local storage previously
-        if (localStorage.getItem('theme')) {
-            document.documentElement.classList.toggle('dark');
-            localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
-        } else { // if NOT set via local storage previously
-            document.documentElement.classList.toggle('dark');
-            localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
-        }
+    themeToggleBtn.addEventListener('click', () => {
+        const isDark = document.documentElement.classList.toggle('dark');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        applyTheme(isDark);
     });
 
-    window.addEventListener('scroll', () => {
+    // --- Scroll Handling ---
+    function debounce(func, wait) {
+        let timeout;
+        return function executedFunction(...args) {
+            const later = () => {
+                clearTimeout(timeout);
+                func(...args);
+            };
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+        };
+    }
+
+    const handleScroll = () => {
         let current = '';
-        sectionsForNav.forEach(section => {
-            const sectionTop = section.offsetTop;
-            if (pageYOffset >= sectionTop - 70) {
-                current = section.getAttribute('id');
+        const scrollPosition = window.pageYOffset;
+
+        for (const section of sectionOffsets) {
+            if (scrollPosition >= section.offset - 70) {
+                current = section.id;
             }
-        });
+        }
 
         navLinks.forEach(link => {
             link.classList.remove('active');
             link.removeAttribute('aria-current');
-            if (link.getAttribute('href')?.substring(1) === current) {
+            if (link.getAttribute('href') === `#${current}`) {
                 link.classList.add('active');
                 link.setAttribute('aria-current', 'page');
             }
         });
 
-        // Back to Top button visibility
-        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        if (scrollPosition > 300) {
             backToTopBtn.style.display = "block";
         } else {
             backToTopBtn.style.display = "none";
         }
-    });
+    };
+
+    window.addEventListener('scroll', debounce(handleScroll, 50));
 
     backToTopBtn.addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -269,7 +310,7 @@ document.addEventListener('DOMContentLoaded', () => {
         sectionObserver.observe(section);
     });
 
-    // Dynamic Accenture Experience Calculation
+    // --- Initial Calculations ---
     function calculateAccentureExperience() {
         const startDate = new Date('2021-10-01');
         const currentDate = new Date();
