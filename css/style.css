@@ -97,7 +97,7 @@ section[id] {
 
 .hero-photo-frame {
     width: min(100%, 280px);
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 1;
     margin: 0 auto;
     padding: 0.5rem;
     border: 1px solid #90E0EF;
@@ -159,6 +159,70 @@ section[id] {
     padding: 0.75rem 0.25rem;
     color: #0077B6;
     font-weight: 600;
+}
+
+.cookie-consent {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    z-index: 90;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    width: min(680px, calc(100% - 2rem));
+    padding: 1rem 1.25rem;
+    border: 1px solid #90E0EF;
+    border-radius: 0.75rem;
+    background: rgba(255, 255, 255, 0.97);
+    box-shadow: 0 12px 30px rgba(3, 4, 94, 0.18);
+}
+
+.cookie-consent h2 {
+    color: #023E8A;
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+
+.cookie-consent p {
+    margin-top: 0.25rem;
+    color: #475569;
+    font-size: 0.8rem;
+    line-height: 1.5;
+}
+
+.cookie-consent a {
+    display: inline-block;
+    margin-top: 0.35rem;
+    color: #0077B6;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.cookie-consent__actions {
+    display: flex;
+    flex-shrink: 0;
+    gap: 0.5rem;
+}
+
+.cookie-consent__actions .primary-cta,
+.cookie-consent__actions .secondary-cta {
+    padding: 0.55rem 0.8rem;
+    font-size: 0.75rem;
+    white-space: nowrap;
+}
+
+.dark .cookie-consent {
+    border-color: #155E75;
+    background: rgba(17, 24, 39, 0.97);
+}
+
+.dark .cookie-consent h2 {
+    color: #BAE6FD;
+}
+
+.dark .cookie-consent p {
+    color: #CBD5E1;
 }
 
 .skip-link {
@@ -510,7 +574,7 @@ section[id] {
     }
 
     .hero-photo-frame {
-        width: min(82vw, 360px);
+        width: min(65vw, 280px);
     }
 
     .experience-grid,
@@ -525,5 +589,15 @@ section[id] {
 
     .experience-card strong {
         text-align: left;
+    }
+
+    .cookie-consent {
+        align-items: stretch;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .cookie-consent__actions {
+        justify-content: flex-end;
     }
 }

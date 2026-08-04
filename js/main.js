@@ -1,4 +1,56 @@
 document.addEventListener('DOMContentLoaded', () => {
+    window.dataLayer = window.dataLayer || [];
+
+    function trackEvent(name, parameters = {}) {
+        window.dataLayer.push({ event: name, ...parameters });
+        if (localStorage.getItem('analytics-consent') === 'granted' && typeof window.gtag === 'function') {
+            window.gtag('event', name, parameters);
+        }
+    }
+
+    const consentBanner = document.getElementById('cookie-consent');
+    const acceptAnalytics = document.getElementById('accept-analytics');
+    const declineAnalytics = document.getElementById('decline-analytics');
+
+    function updateAnalyticsConsent(granted) {
+        localStorage.setItem('analytics-consent', granted ? 'granted' : 'denied');
+        window.gtag('consent', 'update', {
+            analytics_storage: granted ? 'granted' : 'denied',
+            ad_storage: 'denied',
+            ad_user_data: 'denied',
+            ad_personalization: 'denied'
+        });
+        consentBanner.hidden = true;
+        if (granted) trackEvent('profile_page_view', { page_type: 'professional_profile' });
+    }
+
+    if (!localStorage.getItem('analytics-consent')) consentBanner.hidden = false;
+    else if (localStorage.getItem('analytics-consent') === 'granted') {
+        trackEvent('profile_page_view', { page_type: 'professional_profile' });
+    }
+
+    acceptAnalytics.addEventListener('click', () => updateAnalyticsConsent(true));
+    declineAnalytics.addEventListener('click', () => updateAnalyticsConsent(false));
+
+    document.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            const href = link.getAttribute('href') || '';
+            let linkType = 'other';
+            if (href.startsWith('#')) linkType = 'section_navigation';
+            else if (href.startsWith('mailto:')) linkType = 'email';
+            else if (href.startsWith('tel:')) linkType = 'phone';
+            else if (href.toLowerCase().includes('resume')) linkType = 'resume';
+            else if (href.includes('linkedin.com')) linkType = 'linkedin';
+            else if (href.includes('coursera.org')) linkType = 'certificate';
+            else if (href.startsWith('http')) linkType = 'external';
+
+            trackEvent('profile_link_click', {
+                link_type: linkType,
+                link_label: link.textContent.trim().replace(/\s+/g, ' ').slice(0, 80)
+            });
+        });
+    });
+
     const navLinks = document.querySelectorAll('#sticky-nav a');
     const sectionsForNav = Array.from(navLinks)
         .map(link => document.querySelector(link.getAttribute('href')))
